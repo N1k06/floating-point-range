@@ -87,10 +87,11 @@ def float_binary_to_int(f):
 	return n
 
 if __name__ == "__main__":
-	min_range = 0.0
-	max_range = 1.0
+	n_bins = 1000
+	bin_step = 1
+	bins = np.r_[:n_bins][:,None]+[0,bin_step]
 
-	print(float_bruteforce_count(min_range, max_range, 100000000, verbose=1))
-	print(round(float_analytical_count(min_range, max_range)))
-
-
+	for curr_bin in bins:
+		n1 = float_analytical_count(curr_bin[0], curr_bin[1])
+		n2 = float_bruteforce_count(curr_bin[0], curr_bin[1], 100000)
+		print(curr_bin[0], curr_bin[1], n1, n2)
