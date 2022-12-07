@@ -87,7 +87,7 @@ def float_binary_to_int(f):
 	return n
 
 if __name__ == "__main__":
-	n_bins = 1000
+	n_bins = 1024
 	bin_step = 1
 	bins = np.r_[:n_bins][:,None]+[0,bin_step]
 
